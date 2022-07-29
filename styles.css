@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    min-height: 60vh;
+    width: 50%;
+    margin: 60px auto;
+}
+
+.display {
+    flex-shrink: 0%;
+    display: flex;
+    justify-content: end;
+    border: 5px solid black;
+    align-items: flex-end;
+    font-size: 40px;
+    overflow: hidden;
+    min-height: 50px;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button {
+    padding: 40px;
+}

@@ -15,6 +15,9 @@ function multiply(x,y) {
 
 function divide(x,y) {
     let division = x / y;
+    if (y === 0) {
+        return ("What are you doing?");
+    }
     return division;
 }
 
@@ -67,16 +70,34 @@ operators.forEach((operator) => {
 
         } else {
             y = Number(display.textContent);
-            console.log(sign);
-            console.log(x);
-            console.log(y);
             display.textContent = operate(sign, x, y);
             x = Number(display.textContent);
-            y = undefined;
+            y = null;
             sign = operator.textContent;
             set = true;
         }
 
-
     });
+});
+
+const equals = document.querySelector('.equals');
+const clear = document.querySelector('.clear');
+
+clear.addEventListener('click', () => {
+    display.textContent = "0";
+    sign = null;
+    x = null;
+    y = null;
+    set = null;
+});
+
+equals.addEventListener('click', () => {
+    if (typeof sign !== 'undefined') {
+        console.log(sign);
+        y = Number(display.textContent);
+        display.textContent = operate(sign, x, y);
+        x = null;
+        y = null;
+        set = false;
+    }
 });

@@ -1,24 +1,76 @@
 function add(x,y) {
     let sum = x + y;
-    return sum;
+    if (Number.isInteger(sum)) {
+        console.log("YESSIR");
+        if (sum.toString().length > 8) {
+            console.log("YUP");
+            return sum.toExponential(5);
+        } else {
+            return sum;
+        }
+    } else {
+        if (sum.toString().length > 12) {
+            return sum.toExponential(5);
+        } else {
+            return sum;
+        }
+    }
 }
 
 function subtract(x,y) {
     let difference = x - y;
-    return difference;
+    if (Number.isInteger(difference)) {
+        if (difference.toString().length > 8) {
+            console.log("YUP");
+            return difference.toExponential(5);
+        } else {
+            return difference;
+        }
+    } else {
+        if (difference.toString().length > 8) {
+            return difference.toExponential(5);
+        } else {
+            return difference;
+        }
+    }
 }
 
 function multiply(x,y) {
     let product = x * y;
-    return product;
+    if (Number.isInteger(product)) {
+        if (product.toString().length > 8) {
+            return product.toExponential(5);
+        } else {
+            return product;
+        }
+    } else {
+        if (product.toString().length > 8) {
+            return product.toExponential(5);
+        } else {
+            return product;
+        }
+    }
 }
 
 function divide(x,y) {
     let division = x / y;
     if (y === 0) {
         return ("What are you doing?");
+    } else if (Number.isInteger(division)) {
+        console.log("YESSIR");
+        if (division.toString().length > 8) {
+            console.log("YUP");
+            return division.toExponential(5);
+        } else {
+            return division;
+        }
+    } else {
+        if (division.toString().length > 8) {
+            return division.toExponential(5);
+        } else {
+            return division;
+        }
     }
-    return division;
 }
 
 function operate(operator, x, y) {
@@ -43,8 +95,7 @@ numbers.forEach((number) => {
     number.addEventListener('click', () => {
         if (display.textContent === "0") {
             display.textContent = "";
-        }
-        if (set === true) {
+        } else if (set === true) {
             display.textContent = "";
             set = false;
         }
@@ -92,12 +143,27 @@ clear.addEventListener('click', () => {
 });
 
 equals.addEventListener('click', () => {
-    if (typeof sign !== 'undefined') {
+    if (sign != null) {
         console.log(sign);
         y = Number(display.textContent);
         display.textContent = operate(sign, x, y);
         x = null;
         y = null;
-        set = false;
+        set = true;
+        sign = null;
     }
 });
+
+const decimal = document.querySelector('.decimal');
+
+decimal.addEventListener('click', () => {
+    if (display.textContent.includes('.') && (set === false)) {
+        console.log("NOPE");
+        return;
+    } else if (set === true) {
+        display.textContent = "0.";
+        set = false;
+    } else {
+        display.textContent = display.textContent + ".";
+    }
+})

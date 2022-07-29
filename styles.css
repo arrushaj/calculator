@@ -9,6 +9,8 @@ body {
     display: flex;
     flex-direction: column;
     border: 5px solid black;
+    padding: 10px;
+    background-color: darkslategray;
 }
 
 .display {
@@ -21,6 +23,7 @@ body {
     overflow: hidden;
     min-height: 60px;
     padding-right: 5px;
+    background-color: grey;
 }
 
 .row {
@@ -38,4 +41,5 @@ button {
     flex: 1;
     font-size: 25px;
     min-width: 100px;
+    background-color: beige;
 }
